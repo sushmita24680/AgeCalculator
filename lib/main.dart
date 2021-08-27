@@ -9,10 +9,11 @@ void main() => runApp(new MaterialApp(
       splash:
         Image.asset("assets/images/age_logo.png",
         height: 160,
+         
         ),
           
       duration: 3000,
-      splashTransition:SplashTransition.fadeTransition 
+      splashTransition:SplashTransition.fadeTransition
 
       , nextScreen: new MyHomePage()
       
