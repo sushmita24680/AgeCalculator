@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   void dispose() {
+    
     animationController.dispose();
     super.dispose();
   }
@@ -60,8 +61,14 @@ class _MyHomePageState extends State<MyHomePage>
         title: new Text("Age Calculator"),
       ),
       body:
-   
-        Center(
+    Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image:AssetImage("assets/images/age.png"),
+          fit: BoxFit.cover,
+           )
+           ),
+        child:Center(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -80,11 +87,25 @@ class _MyHomePageState extends State<MyHomePage>
               onPressed: _showPicker,
             
             ),
-           
+            new Padding(
+              padding: const EdgeInsets.all(20.0),
+            ),
+            new AnimatedBuilder(
+              animation: animation,
+              builder: (context, child) => new Text(
+                    "Your Age is ${animation.value.toStringAsFixed(0)}",
+                    style: new TextStyle(
+                        fontSize: 30.0,
+                        backgroundColor: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                        
+                  ),
+            )
           ],
         ),
       ),
-     
+    ),  
      
     );
   }
