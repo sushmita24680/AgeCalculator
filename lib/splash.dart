@@ -13,28 +13,38 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   @override
-  void initState(){
+ void initState(){
     super.initState();
-    _navigatehome();
+   _navigatehome();
   }
   _navigatehome() async{
-    await Future.delayed(Duration(milliseconds: 2500),(){});
+    await Future.delayed(Duration(milliseconds: 3000),(){});
     Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>MyHomePage()));
   }
   Widget build(BuildContext context) {
     return Scaffold(
       body:Center(
-        child: Container(
+        child: Column(
+        children:[
+          SizedBox(
+            height: 270,
+          ),
+        Image.asset("assets/images/age_logo.png",
+        height: 160,
+        ),
+        
+         Container(
         child:Text( 
-          "Splash Screen",
+          "Age Calculator",
           style: TextStyle(
             fontSize:24,
             fontWeight: FontWeight.bold
              ),
         ) ,
         )
+        ]
       )
-      
+      )
     );
   }
 }
